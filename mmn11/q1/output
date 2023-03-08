@@ -1,0 +1,27 @@
+Hi there!
+-------
+Function 1, my_strncmp
+Enter the first string
+Ok, str1 is: Almog
+Enter the second string
+Ok, str2 is: Eda
+The result for my_strcmp(st1,str2) is: -4 
+The result for strcmp(st1,str2) is: -4 
+
+
+Function 2, my_strncmp
+Enter the first string
+Ok, str1 is: Als
+Enter the second string
+Ok, str2 is: ka
+enter the index
+Ok, k is: 2
+The result for my_strncmp(st1,str2,k) is: -42 
+The result for strncmp(st1,str2,k) is: -42 
+
+
+
+Function 3, my_strchr
+Enter a string and then char
+Ok,str is: kkKkk and c is: K
+The result for my_strchr(st1,c) is: 2 
