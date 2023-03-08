@@ -11,12 +11,10 @@ strchr -> my_strchr
 
 #define MAX_SIZE 80
 
-int my_strchr(const char str[], char c)
-{
+int my_strchr(const char str[], char c) {
     int i = 0;
     /* search the char c until you reach to the end of the string*/
-    while (str[i] != '\0')
-    {
+    while (str[i] != '\0') {
         /*When found the char, return the index*/
         if (str[i] == c)
             return i;
@@ -27,31 +25,25 @@ int my_strchr(const char str[], char c)
     return -1;
 }
 
-int my_strncmp(char s1[], char s2[], int n)
-{
+int my_strncmp(char s1[], char s2[], int n) {
     int i;
-    for (i = 0; i < n; i++)
-    {
-        if (s1[i] != s2[i])
-        {
+    for (i = 0; i < n; i++) {
+        if (s1[i] != s2[i]) {
             /* return difference between first differing characters */
             return s1[i] - s2[i];
         }
-        /*if we arrived to the end of s1 => s1=s1 -> return 0*/
-        else if (s1[i] == '\0')
-        {
+            /*if we arrived to the end of s1 => s1=s1 -> return 0*/
+        else if (s1[i] == '\0') {
             return 0;
         }
     }
     return 0;
 }
 
-int my_strcmp(const char s1[], const char s2[])
-{
+int my_strcmp(const char s1[], const char s2[]) {
     int i = 0;
     /*Keep go until you find difference between characters */
-    while (s1[i] == s2[i])
-    {
+    while (s1[i] == s2[i]) {
         /*If we in the end of the string -> s1=s1 -> return 0*/
         if (s1[i] == '\0')
             return 0;
@@ -61,8 +53,7 @@ int my_strcmp(const char s1[], const char s2[])
     return s1[i] - s2[i];
 }
 
-int main()
-{
+int main() {
     char str1[MAX_SIZE], str2[MAX_SIZE];
     int k, result;
     char c;
