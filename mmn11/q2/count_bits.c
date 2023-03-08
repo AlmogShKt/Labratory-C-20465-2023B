@@ -28,7 +28,7 @@ int main() {
     for (i = 0; i < SIZE; i++) {
         printf("\n%d->", i + 1);
         scanf("%ld", &numers[i]);
-        printf("\nYou enterd for number #%d ->%lu", i + 1, numers[i]);
+        printf("\nYou entered for number #%d ->%lu", i + 1, numers[i]);
     }
     for (i = 0; i < SIZE; i++) {
         printf("\nIn number %lu there is %d bit in the even place", numers[i], count_bits(numers[i]));

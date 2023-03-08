@@ -1,0 +1,16 @@
+
+Hi, lets get some numbers to clac how many bits are in the even place.
+
+Please enter 4 numbers
+1->
+You enterd for number #1 ->1234
+2->
+You enterd for number #2 ->123
+3->
+You enterd for number #3 ->213
+4->
+You enterd for number #4 ->322
+In number 1234 there is 3 bit in the even place
+In number 123 there is 3 bit in the even place
+In number 213 there is 4 bit in the even place
+In number 322 there is 2 bit in the even place
