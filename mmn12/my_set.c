@@ -3,7 +3,7 @@
 
 #define DEFAULT_SET_SIZE 1
 /*Return the new size to allocate in to the dynamic memory, the size of the set + 1 * sizeof int */
-#define ENLARGE_SIZE(new_set_size) ((new_set_size + 1) * sizeof(int))
+#define ENLARGE_SIZE(new_set_size) ((new_set_size + DEFAULT_SET_SIZE) * sizeof(int))
 
 int get_set(int *set, int *current_set_size);
 
@@ -15,7 +15,7 @@ int main() {
     int *set = NULL;
     int current_set_size = 0;
     /*First initialize set with 0 bits of memory, in case that the set will be empty*/
-    set = malloc(0);
+    set = malloc(DEFAULT_SET_SIZE * sizeof(int));
 
     printf("\n Hi! Welcome to My_set By Almog Shtaigmann\n");
     printf("Please enter a number for the set. (to STOP enter a letter or press ctrl+d \n");
