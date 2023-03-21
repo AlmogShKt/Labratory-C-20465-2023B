@@ -27,7 +27,7 @@ int main() {
     }
     if (current_set_size)
         print_set(set, current_set_size);
-
+    free(set);
 
     return 0;
 }
@@ -55,6 +55,7 @@ int get_set(int *set, int *current_set_size) {
             printf("this number is alredy in the set :)\n");
         printf("Please enter a number for the set. (to STOP enter a letter or press ctrl+d \n");
     }
+    free(temp_set);
     return is_failed;
 }
 
