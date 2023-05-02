@@ -20,7 +20,7 @@ int main() {
     int *set = NULL;
     int current_set_size = 0;
     /*First initialize set with 0 bits of memory, in case that the set will be empty*/
-    set = (int *) malloc(DEFAULT_SET_SIZE * sizeof(int));
+    set = (int *) malloc(ENLARGE_SIZE(DEFAULT_SET_SIZE));
 
     printf("\n Hi! Welcome to My_set By Almog Shtaigmann\n");
     printf("Please enter a number for the set. (to STOP enter a letter or press ctrl+d) \n");
@@ -60,7 +60,7 @@ int *get_set(int *set, int *current_set_size) {
 
             /* Increase the set size and reallocate memory */
             (*current_set_size)++;
-            set = realloc(set, (*current_set_size) * sizeof(int));
+            set = realloc(set, ENLARGE_SIZE((*current_set_size)));
 
             /* If reallocation is successful, add new number to the set */
             if (set != NULL) {
@@ -115,8 +115,9 @@ int search_number(const int *set, int number, int set_size) {
  * @return          A pointer to the copied integer array. */
 int *copy_set(int *set, int set_size) {
     int *copy = malloc(set_size * sizeof(int));
+    int i;
     if (copy != NULL) {
-        for (int i = 0; i < set_size; i++) {
+        for (i = 0; i < set_size; i++) {
             copy[i] = set[i];
         }
     }
@@ -136,3 +137,4 @@ void print_set(const int *set, int current_set_size) {
     }
     printf("\n");
 }
+
