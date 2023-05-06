@@ -114,7 +114,11 @@ int main(int argc, char *argv[]) {
     return 0;
 }
 
-
+/**
+ * @brief This function checks if the provided file is exist in the system
+ * @param path the path to file
+ * @return 0 if the file dose not exist , 1 if the file exist
+ */
 int isFileExist(char path[]) {
     FILE *file_ptr = fopen(path, "r");
     if (file_ptr == NULL) {
