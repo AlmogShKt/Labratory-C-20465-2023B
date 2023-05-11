@@ -67,8 +67,7 @@ Generates a linked list of Fibonacci numbers up to the given n.
 @return 0 if successful, 1 if memory allocation failed.
 */
 int create_fibonacci(Node **head, int n) {
-    unsigned long int fib[n];
-    int i;
+    int long i, a,b,c;
 
     /* If n is 0, insert "1" into the list and return. */
     if (n == 0) {
@@ -86,15 +85,17 @@ int create_fibonacci(Node **head, int n) {
     /* Insert "1" and "1" into the list to start the sequence. */
     insert_node(head, 1);
     insert_node(head, 1);
-    fib[0] = 1;
-    fib[1] = 1;
+    a = 1;
+    b = 1;
 
     /*Calculate the n fib' numbers*/
     for (i = 2; i < n; i++) {
-        fib[i] = fib[i - 1] + fib[i - 2];
-        printf("fib number %d is %lu\n", i, fib[i]);
+        c = a + b;
+        a = b;
+        b = c;
+        printf("fib number %lu is %lu\n", i, c);
         /*Insert the new number into the linked list*/
-        insert_node(head, fib[i]);
+        insert_node(head, c);
     }
     /*If the head is null - error occurred while insert the new number into the list*/
     if (head == NULL)
@@ -116,16 +117,24 @@ void print_list(Node **head, FILE *file_ptr, int n) {
     Node *temp_node = *head;
 
     fprintf(file_ptr, "\nHere is all the %d numbers the sequence:\n", n);
-    for (i = 0; i < n; i++) {
-        /*Print all the number from the biggest to the lowest*/
-        temp_node = temp_node->prev;
-        current_node_value = temp_node->fib_value;
+    if (n != 0) {
+        for (i = 0; i < n; i++) {
+            /*Print all the number from the biggest to the lowest*/
+            temp_node = temp_node->prev;
+            current_node_value = temp_node->fib_value;
 
+            /*Print to std*/
+            printf("%lu\n", current_node_value);
+
+            /*Print to file*/
+            fprintf(file_ptr, "%lu \n", current_node_value);
+        }
+    } else {
         /*Print to std*/
-        printf("%lu\n", current_node_value);
+        printf("%lu\n", temp_node->fib_value);
 
         /*Print to file*/
-        fprintf(file_ptr, "%lu \n", current_node_value);
+        fprintf(file_ptr, "%lu \n", temp_node->fib_value);
     }
 }
 

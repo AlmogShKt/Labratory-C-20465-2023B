@@ -32,6 +32,7 @@ int main(int argc, char *argv[]) {
     int error_found = 0; /*A flag indicating whether an error was found during the program execution. */
     char welcome_file_msg[MAX_SIZE]; /* A character array to store the welcome message to be printed to the file. */
     char input[MAX_SIZE];
+    int i = 0;
     /*Check if the correct number of command line arguments was passed to the program. */
     if ((argc - 1) == 1) {
         /*Get the file name from the command line argument. */
@@ -51,8 +52,12 @@ int main(int argc, char *argv[]) {
                 /*There is no Integer in the input*/
                 error_found = 1;
             } else {
+                if (n > 92) {
+                    printf("~~ERROR - n is too large, the program can't calculate this number\n");
+                    exit(0);
+                }
                 /*For case the input was: 12as - there is integer but also invalid chars 'as'*/
-                for (int i = 0; i < strlen(input); i++) {
+                for (i = 0; i < strlen(input); i++) {
                     /*Ignore '-' , EOF, new line */
                     if (!isdigit(input[i]) && input[i] != '\n' && input[i] != EOF && input[i] != '-') {
                         /*The input contain some invalid chars*/
@@ -81,10 +86,10 @@ int main(int argc, char *argv[]) {
                 file_ptr = fopen(file_name, "w");
 
                 /* Construct the welcome message to be printed to the file. */
-                strcpy(welcome_file_msg, "Hi again, This is mmn23. \
-            \nThis program will get a file name ot path, and a number 'n' \
-            \nThen the program will calculate the first n nu,ber in fibonacci sequence. \
-            \nThe program will print the sequence from the biggest nu,ber to the lower in the terminal as well in the provided file.");
+                strcpy(welcome_file_msg, "Hi again, This is the output of mmn23. \
+            \nThis program will get a file name or path to the file as argument, and ask for a number from the user - 'n' \
+            \nThen the program will calculate the first n number in fibonacci sequence. \
+            \nThe program will print the sequence from the biggest number to the lower in the terminal as well in the provided file.");
 
                 /* Print the welcome message to the file. */
                 fprintf(file_ptr, "%s", welcome_file_msg);
