@@ -93,7 +93,7 @@ int create_fibonacci(Node **head, int n) {
         c = a + b;
         a = b;
         b = c;
-        printf("fib number %lu is %lu\n", i, c);
+        /*printf("fib number %lu is %lu\n", i, c);*/
         /*Insert the new number into the linked list*/
         insert_node(head, c);
     }

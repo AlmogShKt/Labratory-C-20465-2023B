@@ -116,6 +116,7 @@ int main(int argc, char *argv[]) {
             printf("~~ERROR- Too many arguments was provided in the command");
     }
     free_list(list_head);
+    exit(0);
     return 0;
 }
 
