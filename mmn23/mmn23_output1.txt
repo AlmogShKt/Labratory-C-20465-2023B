@@ -1,0 +1,30 @@
+Hi again, This is the output of mmn23.             
+This program will get a file name or path to the file as argument, and ask for a number from the user - 'n'             
+Then the program will calculate the first n number in fibonacci sequence.             
+The program will print the sequence from the biggest number to the lower in the terminal as well in the provided file.
+Here is all the 25 numbers the sequence:
+75025 
+46368 
+28657 
+17711 
+10946 
+6765 
+4181 
+2584 
+1597 
+987 
+610 
+377 
+233 
+144 
+89 
+55 
+34 
+21 
+13 
+8 
+5 
+3 
+2 
+1 
+1 
