@@ -121,7 +121,10 @@ int handle_file(Node *head, char *file_name, int n) {
 
     /* Print the Fibonacci sequence to the file and the terminal. */
     print_list(head, file_ptr, n);
+    printf("end of handle file\n");
     fclose(file_ptr);
+    printf("end of handle file 2\n");
+
     return 1;
 }
 
