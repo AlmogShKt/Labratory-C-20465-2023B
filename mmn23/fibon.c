@@ -102,7 +102,7 @@ int main(int argc, char *argv[]) {
             printf("~~ERROR- Too many arguments was provided in the command");
     }
     printf("before calling free list\n");
-    free_list(list_head, n);
+    free_list(&list_head);
     printf("after calling free list\n");
     exit(0);
     return 0;
