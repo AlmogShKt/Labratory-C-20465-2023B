@@ -82,7 +82,7 @@ int main(int argc, char *argv[]) {
             /* If the linked list was successfully created, output the Fibonacci sequence to the file and the terminal. */
             if (!error_found) {
                 handle_file(list_head, file_name, n);
-
+                printf("After Handle file\n");
             } else {
 
                 /* Output an error message if the linked list creation failed. */
