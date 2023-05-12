@@ -32,7 +32,6 @@ int isFileExist(char path[]);
  */
 int main(int argc, char *argv[]) {
     Node *list_head = NULL; /* A pointer to the head node of the linked list containing the Fibonacci numbers. */
-    FILE *file_ptr = NULL; /*A character array to store the name of the file to output the Fibonacci numbers to. */
     char file_name[MAX_SIZE]; /*A character array to store the name of the file to output the Fibonacci numbers to. */
     int n = 0; /*An integer representing the number of Fibonacci numbers to generate. */
     int error_found = 0; /*A flag indicating whether an error was found during the program execution. */
