@@ -124,7 +124,6 @@ int handle_file(Node *head, char *file_name, int n) {
     printf("end of handle file\n");
     fclose(file_ptr);
     printf("end of handle file 2\n");
-
     return 1;
 }
 
@@ -167,6 +166,8 @@ void print_list(Node *head, FILE *file_ptr, int n) {
         /*Print to file*/
         fprintf(file_ptr, "%lu \n", temp_node->fib_value);
     }
+
+    free(temp_node);
 }
 
 /**
@@ -178,11 +179,14 @@ starting from the head node and traversing the list until the end node is reache
 void free_list(Node *head) {
     Node *current = head;
     Node *next;
-
+    printf("before free list\n");
     while (current != NULL && current->prev != NULL) {
         next = current->next;
         free(current);
         current = next;
+
     }
+    printf("after free list\n");
+    return;
 }
 
