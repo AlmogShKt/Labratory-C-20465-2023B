@@ -1,0 +1,16 @@
+read_comp D , 2 , 2
+read_comp B ,  32,11
+read_comp C    ,  1 , 2
+read_comp A ,  11  ,   20
+print_comp A
+print_comp D
+add_comp A,  C
+add_comp B, C
+sub_comp B , B
+sub_comp A , A
+mult_comp_real A, 2.1
+mult_comp_comp A, A
+mult_comp_comp E , C
+abs_comp A
+abs_comp B
+stop

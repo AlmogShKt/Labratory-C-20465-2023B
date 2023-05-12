@@ -1,0 +1,67 @@
+Hi, Welcome to mmn22 by Almog Shtaigmann
+Lets start, follow the instruction below:
+
+-------------
+Enter command:read_comp D , 2 , 2
+
+2.00 + (2.00)i
+-------------
+Enter command:read_comp B ,  32,11
+
+32.00 + (11.00)i
+-------------
+Enter command:read_comp C    ,  1 , 2
+
+1.00 + (2.00)i
+-------------
+Enter command:read_comp A ,  11  ,   20
+
+11.00 + (20.00)i
+-------------
+Enter command:print_comp A
+
+11.00 + (20.00)i
+-------------
+Enter command:print_comp D
+
+2.00 + (2.00)i
+-------------
+Enter command:add_comp A,  C
+
+12.00 + (22.00)i
+-------------
+Enter command:add_comp B, C
+
+33.00 + (13.00)i
+-------------
+Enter command:sub_comp B , B
+
+0.00 + (0.00)i
+-------------
+Enter command:sub_comp A , A
+
+0.00 + (0.00)i
+-------------
+Enter command:mult_comp_real A, 2.1
+
+23.10 + (42.00)i
+-------------
+Enter command:mult_comp_comp A, A
+
+-279.00 + (440.00)i
+-------------
+Enter command:mult_comp_comp E , C
+
+0.00 + (0.00)i
+-------------
+Enter command:abs_comp A
+
+22.83 + (0.00)i
+-------------
+Enter command:abs_comp B
+
+33.84 + (0.00)i
+-------------
+Enter command:stop
+
+Ok, Stopping the app..
