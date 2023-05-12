@@ -180,13 +180,12 @@ void free_list(Node *head) {
     Node *current = head;
     Node *next;
     printf("before free list\n");
-    while (current != NULL && current->prev != NULL) {
+    while (current != NULL) {
         next = current->next;
         free(current);
         current = next;
-
     }
     printf("after free list\n");
-    return;
 }
+
 
