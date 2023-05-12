@@ -179,6 +179,7 @@ void free_list(Node *head) {
     Node *next;
     printf("before free list\n");
     while (current != NULL && current->prev != NULL) {
+        printf("free - %lu\n",current->fib_value);
         next = current->next;
         free(current);
         current = next;
