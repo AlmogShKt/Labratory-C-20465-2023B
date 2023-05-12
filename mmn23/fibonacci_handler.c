@@ -174,15 +174,19 @@ void print_list(Node *head, FILE *file_ptr, int n) {
 This function frees the memory allocated for a linked list of Node structs,
 starting from the head node and traversing the list until the end node is reached.
 */
-void free_list(Node *head) {
+void free_list(Node *head,int n) {
     Node *current = head;
     Node *next;
     printf("before free list\n");
     while (current != NULL && current->prev != NULL && current->next != NULL) {
-        printf("free - %lu\n", current->fib_value);
-        next = current->next;
-        free(current);
-        current = next;
+        if(n > 0) {
+            printf("free - %lu\n", current->fib_value);
+            next = current->next;
+            free(current);
+            current = next;
+            n--;
+        } else
+            break;
     }
     printf("after free list\n");
 }
