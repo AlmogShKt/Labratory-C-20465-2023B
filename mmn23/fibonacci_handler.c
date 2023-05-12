@@ -105,31 +105,39 @@ int create_fibonacci(Node **head, int n) {
         return 0;
 }
 
+
+/**
+@brief Handle with the file writing
+@param head A pointer to a pointer to the head of the linked list.
+@param file_name The name of the file
+@return 0 if successful, 1 if memory allocation failed.
+*/
 int handle_file(Node *head, char *file_name, int n) {
     char welcome_file_msg[MAX_SIZE]; /* A character array to store the welcome message to be printed to the file. */
     /* Open the file for writing. */
     FILE *file_ptr = fopen(file_name, "w");
     if (file_ptr == NULL) {
-        return 0;
+        return 1;
     }
 
     /* Construct the welcome message to be printed to the file. */
-    strcpy(welcome_file_msg, "Hi again, This is the output of mmn23. ");
+    strcpy(welcome_file_msg, "Hi again, This is the output of mmn23. \
+            \nThis program will get a file name or path to the file as argument, and ask for a number from the user - 'n' \
+            \nThen the program will calculate the first n number in fibonacci sequence. \
+            \nThe program will print the sequence from the biggest number to the lower in the terminal as well in the provided file.");
+
 
     /* Print the welcome message to the file. */
     fprintf(file_ptr, "%s", welcome_file_msg);
 
     /* Print the Fibonacci sequence to the file and the terminal. */
     print_list(head, file_ptr, n);
-    printf("end of handle file\n");
     fclose(file_ptr);
-    printf("end of handle file 2\n");
-    return 1;
+    return 0;
 }
 
 
 /**
-
 Prints the contents of a linked list representing the Fibonacci sequence in reverse order.
 @param head A pointer to the head of the linked list.
 @param file_ptr A pointer to a file where the Fibonacci sequence will be printed.
@@ -140,11 +148,12 @@ void print_list(Node *head, FILE *file_ptr, int n) {
     unsigned long int current_node_value;
     Node *temp_node = head;
     if (temp_node == NULL) {
-        printf("Error - malloc");
+        /* Output an error message if the allocation failed. */
+        printf("~~ERROR- Memory allocation failed\n");
         return;
     }
-    temp_node = head;
 
+    temp_node = head;
 
     fprintf(file_ptr, "\nHere is all the %d numbers the sequence:\n", n);
     if (n != 0) {
@@ -173,21 +182,20 @@ void print_list(Node *head, FILE *file_ptr, int n) {
 @brief Frees the memory allocated for a linked list of Node structs.
 This function frees the memory allocated for a linked list of Node structs,
 starting from the head node and traversing the list until the end node is reached.
+
 */
 void free_list(Node **head) {
     Node *current = *head;
-    printf("before free list\n");
+    /*First lets "broke" the circle in the list*/
     while (current->next != *head) {
         current = current->next;
     }
     current->next = NULL;
 
-    while (*head != NULL){
+    /*No lets free each one of the nodes*/
+    while (*head != NULL) {
         current = *head;
         *head = (*head)->next;
         free(current);
     }
-    printf("after free list\n");
 }
-
-

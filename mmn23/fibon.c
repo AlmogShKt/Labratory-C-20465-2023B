@@ -15,15 +15,21 @@
 int isFileExist(char path[]);
 
 /**
-@brief Main function of the mmn23 program.
-This function is the main entry point of the mmn23 program. The program expects one command line argument, which is
-the name of the file to output the Fibonacci sequence to. The program prompts the user to enter an integer 'n', which
-is the number of Fibonacci numbers to generate. The program then generates the first n Fibonacci numbers and outputs
-them to both the provided file and the terminal. If any errors occur during the program execution, the program will
-output an error message to the terminal.
-@param argc The number of command line arguments passed to the program.
-@param argv An array of strings representing the command line arguments passed to the program.
-*/
+ * The main entry point of the mmn23 program.
+ *
+ * The program expects one command line argument, which is the name of the file to
+ * output the Fibonacci sequence to. The program prompts the user to enter an integer 'n',
+ * which is the number of Fibonacci numbers to generate. The program then generates the
+ * first n Fibonacci numbers and outputs them to both the provided file and the terminal.
+ *
+ * If any errors occur during the program execution, the program will output an error
+ * message to the terminal.
+ *
+ * @param argc The number of command line arguments.
+ * @param argv The array of command line arguments.
+ *
+ * @return 0 if the program runs successfully, or a non-zero error code otherwise.
+ */
 int main(int argc, char *argv[]) {
     Node *list_head = NULL; /* A pointer to the head node of the linked list containing the Fibonacci numbers. */
     FILE *file_ptr = NULL; /*A character array to store the name of the file to output the Fibonacci numbers to. */
@@ -81,8 +87,12 @@ int main(int argc, char *argv[]) {
 
             /* If the linked list was successfully created, output the Fibonacci sequence to the file and the terminal. */
             if (!error_found) {
-                handle_file(list_head, file_name, n);
-                printf("After Handle file\n");
+                error_found = handle_file(list_head, file_name, n);
+                if (error_found) {
+                    /* Output an error message if the linked list creation failed. */
+                    printf("~~ERROR- failed while writing to the file\n");
+                    exit(0);
+                }
             } else {
 
                 /* Output an error message if the linked list creation failed. */
@@ -101,9 +111,7 @@ int main(int argc, char *argv[]) {
         else
             printf("~~ERROR- Too many arguments was provided in the command");
     }
-    printf("before calling free list\n");
     free_list(&list_head);
-    printf("after calling free list\n");
     exit(0);
     return 0;
 }
