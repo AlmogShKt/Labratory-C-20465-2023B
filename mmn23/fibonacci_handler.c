@@ -138,7 +138,7 @@ Prints the contents of a linked list representing the Fibonacci sequence in reve
 void print_list(Node *head, FILE *file_ptr, int n) {
     int i;
     unsigned long int current_node_value;
-    Node *temp_node = malloc(sizeof(Node));
+    Node *temp_node = head;
     if (temp_node == NULL) {
         printf("Error - malloc");
         return;
