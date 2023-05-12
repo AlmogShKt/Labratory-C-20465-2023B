@@ -23,7 +23,10 @@ typedef struct node {
 int create_fibonacci(Node **head, int n);
 
 /*Print the list, to std and to provided File*/
-void print_list(Node **head, FILE *file_ptr, int n);
+void print_list(Node *head, FILE *file_ptr, int n);
 
 /*free all nodes in the list*/
 void free_list(Node *list_head);
+
+
+int handle_file(Node *head, char *file_name , int n);

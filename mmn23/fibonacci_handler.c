@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAX_SIZE 1000
 
 /**
  * Creates a new node for a linked list with the given data.
@@ -67,7 +68,7 @@ Generates a linked list of Fibonacci numbers up to the given n.
 @return 0 if successful, 1 if memory allocation failed.
 */
 int create_fibonacci(Node **head, int n) {
-    int long i, a,b,c;
+    int long i, a, b, c;
 
     /* If n is 0, insert "1" into the list and return. */
     if (n == 0) {
@@ -104,6 +105,27 @@ int create_fibonacci(Node **head, int n) {
         return 0;
 }
 
+int handle_file(Node *head, char *file_name, int n) {
+    char welcome_file_msg[MAX_SIZE]; /* A character array to store the welcome message to be printed to the file. */
+    /* Open the file for writing. */
+    FILE *file_ptr = fopen(file_name, "w");
+    if (file_ptr == NULL) {
+        return 0;
+    }
+
+    /* Construct the welcome message to be printed to the file. */
+    strcpy(welcome_file_msg, "Hi again, This is the output of mmn23. ");
+
+    /* Print the welcome message to the file. */
+    fprintf(file_ptr, "%s", welcome_file_msg);
+
+    /* Print the Fibonacci sequence to the file and the terminal. */
+    print_list(head, file_ptr, n);
+    fclose(file_ptr);
+    return 1;
+}
+
+
 /**
 
 Prints the contents of a linked list representing the Fibonacci sequence in reverse order.
@@ -111,10 +133,16 @@ Prints the contents of a linked list representing the Fibonacci sequence in reve
 @param file_ptr A pointer to a file where the Fibonacci sequence will be printed.
 @param n The length of the Fibonacci sequence to print.
 */
-void print_list(Node **head, FILE *file_ptr, int n) {
+void print_list(Node *head, FILE *file_ptr, int n) {
     int i;
     unsigned long int current_node_value;
-    Node *temp_node = *head;
+    Node *temp_node = malloc(sizeof(Node));
+    if (temp_node == NULL) {
+        printf("Error - malloc");
+        return;
+    }
+    temp_node = head;
+
 
     fprintf(file_ptr, "\nHere is all the %d numbers the sequence:\n", n);
     if (n != 0) {

@@ -30,7 +30,6 @@ int main(int argc, char *argv[]) {
     char file_name[MAX_SIZE]; /*A character array to store the name of the file to output the Fibonacci numbers to. */
     int n = 0; /*An integer representing the number of Fibonacci numbers to generate. */
     int error_found = 0; /*A flag indicating whether an error was found during the program execution. */
-    char welcome_file_msg[MAX_SIZE]; /* A character array to store the welcome message to be printed to the file. */
     char input[MAX_SIZE];
     int i = 0;
     /*Check if the correct number of command line arguments was passed to the program. */
@@ -82,20 +81,7 @@ int main(int argc, char *argv[]) {
 
             /* If the linked list was successfully created, output the Fibonacci sequence to the file and the terminal. */
             if (!error_found) {
-                /* Open the file for writing. */
-                file_ptr = fopen(file_name, "w");
-
-                /* Construct the welcome message to be printed to the file. */
-                strcpy(welcome_file_msg, "Hi again, This is the output of mmn23. \
-            \nThis program will get a file name or path to the file as argument, and ask for a number from the user - 'n' \
-            \nThen the program will calculate the first n number in fibonacci sequence. \
-            \nThe program will print the sequence from the biggest number to the lower in the terminal as well in the provided file.");
-
-                /* Print the welcome message to the file. */
-                fprintf(file_ptr, "%s", welcome_file_msg);
-
-                /* Print the Fibonacci sequence to the file and the terminal. */
-                print_list(&list_head, file_ptr, n);
+                handle_file(list_head, file_name, n);
 
             } else {
 
