@@ -1,0 +1,69 @@
+Hi, Welcome to mmn22 by Almog Shtaigmann
+Lets start, follow the instruction below:
+
+-------------
+Enter command:read_comp G, 3.1, 6.5
+
+~~ERROR[2]- Undefined complex variable~~
+-------------
+Enter command:read_comp a, 3.6, 5.1
+
+~~ERROR[2]- Undefined complex variable~~
+-------------
+Enter command:do_it A, B
+
+~~ERROR[1]- Undefined command name~~
+-------------
+Enter command:Add_Comp A, C
+
+~~ERROR[1]- Undefined command name~~
+-------------
+Enter command:read_comp A, 3.5, xyz
+
+~~ERROR[3]- Invalid parameter – not a number~~
+-------------
+Enter command:read_comp A, 3.5
+
+~~ERROR[4]- Missing parameter~~
+-------------
+Enter command:read_comp A, 3.5, -3,
+
+~~ERROR[5]- Extraneous text after end of command~~
+-------------
+Enter command:add_comp B
+
+~~ERROR[4]- Missing parameter~~
+-------------
+Enter command:print_comp C, D
+
+~~ERROR[5]- Extraneous text after end of command~~
+-------------
+Enter command:sub_comp F, , D
+
+~~ERROR[6]- Multiple consecutive commas~~
+-------------
+Enter command:mult_comp_comp F D
+
+~~ERROR[7]- Missing comma~~
+-------------
+Enter command:mult_comp_real, A, 2.5
+
+~~ERROR[8]- Illegal comma~~
+-------------
+Enter command:mult_comp_img A, B
+
+~~ERROR[3]- Invalid parameter – not a number~~
+-------------
+Enter command:abs_comp
+
+~~ERROR[4]- Missing parameter~~
+-------------
+Enter command:abs_comp 2.5
+
+~~ERROR[2]- Undefined complex variable~~
+-------------
+Enter command:stop A #!
+~~ERROR[5]- Extraneous text after end of command~~
+-------------
+Enter command:
+program has stopped with out the command 'stop'
