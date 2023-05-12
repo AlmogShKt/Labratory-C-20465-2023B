@@ -166,8 +166,6 @@ void print_list(Node *head, FILE *file_ptr, int n) {
         /*Print to file*/
         fprintf(file_ptr, "%lu \n", temp_node->fib_value);
     }
-
-    free(temp_node);
 }
 
 /**
@@ -180,12 +178,10 @@ void free_list(Node *head) {
     Node *current = head;
     Node *next;
     printf("before free list\n");
-    while (current != NULL) {
+    while (current != NULL && current->prev != NULL) {
         next = current->next;
         free(current);
         current = next;
     }
     printf("after free list\n");
 }
-
-
