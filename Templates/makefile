@@ -6,4 +6,3 @@ ls3.o: q1.c
 
 exec:
 	./q1
-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
